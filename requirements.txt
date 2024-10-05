@@ -1,0 +1,42 @@
+AGILE:
+    1)
+        USER-STORY: "As a vanilla git power-user that has never seen GiggleGit before, I want to quickly understand the differences 
+                    between Git and GiggleGit so that I can use it quickly without having to re-learn how to use a completely new 
+                    system of version control"
+
+        USER-STORY: "As a team lead onboarding an experienced GiggleGit user, I want to have a way to streamline the onboarding proccess
+                    for new team members so that we can decrease down time and increase team productivity."
+
+    2)
+        USER-STORY: "As an experienced GiggleGit user, I want a quick and easy way to integrate GiggleGit into my existing workflows to streamline
+                    development and decrease the time it takes me to implement version controlling in new projects."
+
+            TASK: "Simplify local repository setup and connection"
+
+            TICKET: 
+                TTITLE:"Create a one-step repository initialization feature"
+                DETAILS:"Develop a feature that allows experienced users to initialize or use a local git repository and connect it to GiggleGit in one command 
+                        or action. This should combine creating the local repository, linking it to a remote GiggleGit repo, and setting the necessary configuration,
+                        like access creds, to save time. The goal is to streamline the process and reduce setup steps."
+
+            TICKET:
+                TITLE:"Integrate templates for common use cases"
+                DETAILS:"Build pre-configured templates for common Git workflows like feature branching that users can select when starting a new project. These 
+                templates should automatically configure the GiggleGit repository with the correct settings and hooks to match the user’s selected workflow. This reduces 
+                the time it takes to set up and ensures best practices are followed."
+
+    3) "It's not a user story because it doesn't have a reason for the new feature. Without a reason, it's more of a feature request."
+
+
+FORMAL-REQUIREMENTS:
+    1)
+        GOAL: "Perfom a user study that allows us to identify and understand GiggleGit's range of functionalty as a version control"
+        NON-GOAL: "Evaluating the usability of specific UI components or providing detailed design recommendations."
+    2) 
+        NON-FUNCTIONAL-REQUIREMENT: "Access Control"
+            FUNCTIONAL-REQUIREMENT: "Ensure that only authorized users have access to the version control repository during the study."
+            FUNCTIONAL-REQUIREMENT: "Implement role-based access control to differentiate between administrators, contributors, and read-only users."
+
+        NON-FUNCTIONAL-REQUIREMENT: "Study Design"
+            FUNCTIONAL-REQUIREMENT: "Group the users based on their current skill level and randomly assign them to either a control gorup or the test group"
+            FUNCTIONAL-REQUIREMENT: "Ensure that each group follows the same task instructions to maintain consistency in the study results"
