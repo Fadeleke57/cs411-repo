@@ -11,4 +11,4 @@ else
     # Create the database for the first time
     sqlite3 "$DB_PATH" < /app/sql/create_song_table.sql
     echo "Database created successfully."
-fi
+fi 
