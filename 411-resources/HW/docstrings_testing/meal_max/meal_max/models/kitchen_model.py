@@ -244,39 +244,39 @@ def get_meal_by_name(meal_name: str) -> Meal:
 
 
 def update_meal_stats(meal_id: int, result: str) -> None:
-    """
-    Updates the battles and wins statistics for a meal in the database.
+        """
+        Updates the battles and wins statistics for a meal in the database.
 
-    Args:
-        meal_id (int): The ID of the meal to update.
-        result (str): The result of the battle, either 'win' or 'loss'.
+        Args:
+            meal_id (int): The ID of the meal to update.
+            result (str): The result of the battle, either 'win' or 'loss'.
 
-    Raises:
-        ValueError: If the meal ID is invalid or the result is not 'win' or 'loss'.
-        sqlite3.Error: If any database error occurs.
-    """
-    try:
-        with get_db_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute("SELECT deleted FROM meals WHERE id = ?", (meal_id,))
-            try:
-                deleted = cursor.fetchone()[0]
-                if deleted:
-                    logger.info("Meal with ID %s has been deleted", meal_id)
-                    raise ValueError(f"Meal with ID {meal_id} has been deleted")
-            except TypeError:
-                logger.info("Meal with ID %s not found", meal_id)
-                raise ValueError(f"Meal with ID {meal_id} not found")
+        Raises:
+            ValueError: If the meal ID is invalid or the result is not 'win' or 'loss'.
+            sqlite3.Error: If any database error occurs.
+        """
+        try:
+            with get_db_connection() as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT deleted FROM meals WHERE id = ?", (meal_id,))
+                try:
+                    deleted = cursor.fetchone()[0]
+                    if deleted:
+                        logger.info("Meal with ID %s has been deleted", meal_id)
+                        raise ValueError(f"Meal with ID {meal_id} has been deleted")
+                except TypeError:
+                    logger.info("Meal with ID %s not found", meal_id)
+                    raise ValueError(f"Meal with ID {meal_id} not found")
 
-            if result == 'win':
-                cursor.execute("UPDATE meals SET battles = battles + 1, wins = wins + 1 WHERE id = ?", (meal_id,))
-            elif result == 'loss':
-                cursor.execute("UPDATE meals SET battles = battles + 1 WHERE id = ?", (meal_id,))
-            else:
-                raise ValueError(f"Invalid result: {result}. Expected 'win' or 'loss'.")
+                if result == 'win':
+                    cursor.execute("UPDATE meals SET battles = battles + 1, wins = wins + 1 WHERE id = ?", (meal_id,))
+                elif result == 'loss':
+                    cursor.execute("UPDATE meals SET battles = battles + 1 WHERE id = ?", (meal_id,))
+                else:
+                    raise ValueError(f"Invalid result: {result}. Expected 'win' or 'loss'.")
 
-            conn.commit()
+                conn.commit()
 
-    except sqlite3.Error as e:
-        logger.error("Database error: %s", str(e))
-        raise e
+        except sqlite3.Error as e:
+                logger.error("Database error: %s", str(e))
+                raise e
