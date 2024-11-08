@@ -22,6 +22,7 @@ def extra_combatant():
     """Fixture to provide an extra Meal combatant for more testing."""
     return Meal(id=3, meal="Tacos", price=10.0, cuisine="Mexican", difficulty="LOW")
 
+# Mockers
 @pytest.fixture
 def mock_get_random(mocker):
     """Mock the update_play_count function for testing purposes."""
