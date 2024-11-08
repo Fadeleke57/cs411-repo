@@ -1,0 +1,7 @@
+/venv
+/myenv
+/env
+/meal_max_venv
+.DS_Store
+__pycache__
+.pytest_cache
